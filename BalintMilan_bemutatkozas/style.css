@@ -1,123 +1,183 @@
+/* ============================================================
+   Kovács Anna bemutatkozó oldala – stíluslap
+   Ismétlés: szelektorok, box model, színek, betűk
+   ============================================================ */
+
+/* Minden elem így számolja a méretét: a padding és a border
+   beleszámít a megadott szélességbe. */
 * {
   box-sizing: border-box;
 }
 
+/* --- Az egész oldal alapbeállításai --- */
 body {
-  margin: 0;                         
-  background-color: #f2f5f8;
-  color: #3f6d99;
-  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f2f5f8;          /* halvány, meleg háttér */
+  color: #33302b;                     /* alap szövegszín */
+  font-family: "Segoe UI", Arial, sans-serif;
   font-size: 17px;
-  line-height: 1.7;                
+  line-height: 1.7;
 }
+
+/* ============================================================
+   FEJLÉC
+   ============================================================ */
 .fejlec {
-  background-color: #3f6d99;
-  color: #ffffff;                  /* fehér szöveg a sötét háttéren */
-  padding: 40px 20px 32px;         /* belső térköz: fent / oldalt / lent */
-  text-align: center;             /* középre igazít mindent, ami benne van */
+  background-color: #3f6d99;          /* nyugodt zöldes-kék */
+  color: #ffffff;
+  padding: 40px 20px 32px;            /* fent 40, oldalt 20, lent 32 */
+  text-align: center;
 }
 
 .profilkep {
   width: 150px;
   height: 150px;
-  border: 5px solid #ffffff;       /* vastagság stílus szín */
-  border-radius: 50%;             /* 50% = tökéletes kör */
+  border: 5px solid #ffffff;
+  border-radius: 50%;                 /* 50% = kör alakú kép */
   margin-bottom: 14px;
 }
 
-.fejlec h1 {                        /* leszármazott szelektor:
-                                          csak a fejlécben lévő h1 */
+.fejlec h1 {
   margin: 0 0 6px;
-  font-size: /* 30px és 36px között */;
+  font-size: 34px;
+  letter-spacing: 1px;
 }
 
 .motto {
   margin: 0;
-  color: /* halvány szín, ami illik a fejléchez */;
+  color: #d6e6e1;
+  font-size: 17px;
   font-style: italic;
 }
+
+/* ============================================================
+   MENÜ
+   ============================================================ */
 .menu {
   background-color: #2f5474;
   padding: 12px 20px;
   text-align: center;
 }
 
-/* Leszármazott szelektor: csak a menün belüli linkekre vonatkozik,
-   a szövegben lévő linkeket nem bántja. */
+/* Leszármazott szelektor: csak a menün belüli hivatkozásokra */
 .menu a {
-  display: inline-block;          /* így kaphat rendes padding-ot */
+  display: inline-block;
   color: #ffffff;
-  text-decoration: none;         /* leveszi az aláhúzást */
+  text-decoration: none;
   padding: 6px 14px;
   margin: 2px;
   border-radius: 6px;
   font-size: 15px;
 }
 
-/* :hover = amikor az egér az elem fölött van */
 .menu a:hover {
-  background-color: #3a83c7;
-  color: white;
+  background-color: #57897f;          /* egérrel fölé húzva */
 }
 
+/* ============================================================
+   TARTALOM – középre igazított sáv
+   ============================================================ */
+.tartalom {
+  width: 90%;
+  max-width: 860px;
+  margin: 30px auto;                  /* auto = vízszintesen középre */
+}
+
+/* --- Fehér doboz: ebben látszik jól a box model --- */
 .doboz {
   background-color: #ffffff;
-  border: 1px solid #e2ddd3;      /* vékony, halvány keret körben */
-  border-left: 6px solid #3f6d99;  /* vastag színes csík balra */
-  border-radius: 15px;
-  padding: 24px 28px;            /* BELSŐ térköz: keret és szöveg között */
-  margin-bottom: 26px;          /* KÜLSŐ térköz: a következő dobozig */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #e2ddd3;
+  border-left: 6px solid #3f6d99;     /* színes csík a bal oldalon */
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 26px;
+}
+
+/* Kiemelt doboz: ugyanaz, csak más színekkel */
+.kiemelt {
+  background-color: #fdf5ea;
+  border-left-color: #0400fa;
 }
 
 h2 {
-  margin: 0 0 12px;             /* fent 0, mert a doboz paddingja már megvan */
-  color: #2f5474 */;
+  margin: 0 0 12px;
+  color: #3f6d99;
   font-size: 25px;
 }
 
-strong {
-  color: #2f5474 */;
+h3 {
+  margin: 12px 0 6px;
+  color: #2f5474;
+  font-size: 19px;
 }
 
-.halvany {
-  color: rgb(123, 148, 160);
-  font-size: 15px;
-}
-.lista {
+p {
   margin: 10px 0;
-  padding-left: 24px;         /* hely a pontoknak / számoknak */
 }
 
-.lista li {
-  margin-bottom: 7px;         /* levegő a sorok között */
-}
-
-/* Az összes szövegbeli hivatkozás – a menü kivételével,
-   mert azt a .menu a szabály erősebben felülírja. */
-a {
+/* Szövegformázás */
+strong {
   color: #3f6d99;
 }
 
-a:hover {
-  color: #d08a54;
+.halvany {
+  color: #7d776d;
+  font-size: 15px;
 }
 
 .kozepre {
   text-align: center;
 }
 
+.idezet {
+  border-left: 4px solid #d08a54;
+  background-color: #faf6f0;
+  padding: 12px 18px;
+  margin: 16px 0 0;
+  font-style: italic;
+  color: #5c554a;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2ddd3;
+  margin: 20px 0;
+}
+
+/* --- Listák --- */
+.lista {
+  margin: 10px 0;
+  padding-left: 24px;
+}
+
+.lista li {
+  margin-bottom: 7px;
+}
+
+/* --- Hivatkozások a szövegben --- */
+a {
+  color: #2f7d6f;
+}
+
+a:hover {
+  color: #d08a54;
+}
+
+/* ============================================================
+   KÉPKÁRTYÁK – három doboz egymás mellett
+   ============================================================ */
 .kartyak {
-  text-align: center;           /* a kártyákat középre húzza */
+  text-align: center;                 /* középre húzza a kártyákat */
   margin-bottom: 26px;
 }
 
+/* inline-block: egymás mellé kerülnek, de méretezhetők */
 .kartya {
-  display: inline-block;      /* egymás mellé, de méretezhetők */
-  width: 260px;
-  vertical-align: top;        /* a tetejüknél igazodjanak egymáshoz */
-  text-align: left;           /* a kártyán BELÜL viszont balra */
-  background-color: /* DOBOZ HÁTTERE */;
+  display: inline-block;
+  width: 250px;
+  vertical-align: top;
+  text-align: left;
+  background-color: #ffffff;
   border: 1px solid #e2ddd3;
   border-radius: 10px;
   padding: 14px;
@@ -125,17 +185,50 @@ a:hover {
 }
 
 .kartya img {
-  width: 100%;                 /* a szülő (kártya) teljes szélessége */
+  width: 100%;
   border-radius: 6px;
 }
 
 .kartya p {
   font-size: 15px;
-  color: /* halvány szövegszín */;
+  color: #5c554a;
 }
 
-h3 {
-  margin: 12px 0 6px;
-  color: /* FŐSZÍN */;
-  font-size: 19px;
+/* ============================================================
+   GOMB (valójában egy hivatkozás)
+   ============================================================ */
+.gomb {
+  display: inline-block;
+  background-color: #3f6d99;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+.gomb:hover {
+  background-color: #2f5474;
+  color: #ffffff;
+}
+
+/* ============================================================
+   LÁBLÉC
+   ============================================================ */
+.lablec {
+  background-color: #2f5474;
+  color: #d6e6e1;
+  text-align: center;
+  padding: 22px 20px;
+  margin-top: 40px;
+  font-size: 15px;
+}
+
+.lablec a {
+  color: #ffffff;
+}
+
+.apro {
+  font-size: 13px;
+  color: #a6c2bb;
 }
